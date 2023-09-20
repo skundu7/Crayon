@@ -5,7 +5,7 @@ Prerequsities:
 * Git
 
 #After cloning the Repo into the system do the following steps
-* nvm install
+* npm install
 * npm run test
 
 #Reporter

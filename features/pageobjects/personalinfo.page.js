@@ -43,10 +43,6 @@ class PersonalInfo extends Page {
         return $('//span[text()="Dit is een vereiste vraag"]')
     }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
 
    async clickOnNextButton(){
          await this.nextButton.click();
