@@ -14,8 +14,8 @@ Given(/^I am on the registration page$/, async () => {
     await PersonalInfo.open()
 });
 
-Given(/^I click on the Next button$/, async () => {
-    await PersonalInfo.clickOnNextButton()
+Given(/^I click on the (.*) button$/, async (text) => {
+    await PersonalInfo.clickOnButtonWithText(text)
 });
 
 Given(/^I enter the name$/, async () => {
@@ -63,9 +63,6 @@ When('I check yes', async () => {
   await EventInfo.selectYes();
 })
 
-Given(/^I click on the Submit button$/, async () => {
-    await EventInfo.clickOnSubmitButton()
-});
 
 Then('I should see the text {string}', async (s) => {
   await EventConf.verifyTextOnPage(s)
@@ -77,6 +74,18 @@ Then('I should see an error message for {string} field', async (s) => {
 
 Then('I should see {string} error message', async (s) => {
    await PersonalInfo.verifyErrorMessage(s);
+})
+
+Then('I should see Clear form dialog box', async () => {
+    await PersonalInfo.verifyClearFormDialog();
+})
+
+Then('I click on clear from button present in Clear form dialog', async () => {
+  await  PersonalInfo.clickClearformButtonOnDialog();
+})
+
+Then('I should land on {string} page', async (page) => {
+  await PersonalInfo.verifyPage(page)
 })
 
 

@@ -9,7 +9,7 @@ import Page from './page.js';
 class EventConf extends Page {
 
     async verifyTextOnPage(text){
-       const elem = await $('//div[text()="'+text+'"]');
+       const elem = await $('//*[text()="'+text+'"]');
        await expect(elem).toBeDisplayed()
     }
    

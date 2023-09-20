@@ -13,19 +13,19 @@ class EventInfo extends Page {
     }
 
     get hourAvailableFrom(){
-        return $('//span[text()="Available from:"]/../../../following-sibling::div//input[@aria-label="Uur"]')
+        return $('//span[text()="Available from:"]/../../../following-sibling::div//input[@aria-label="Hour"]')
     }
 
     get minutesAvailableFrom(){
-        return $('//span[text()="Available from:"]/../../../following-sibling::div//input[@aria-label="Minuut"]')
+        return $('//span[text()="Available from:"]/../../../following-sibling::div//input[@aria-label="Minute"]')
     }
 
     get hourAvailableTo(){
-        return $('//span[text()="Available to:"]/../../../following-sibling::div//input[@aria-label="Uur"]')
+        return $('//span[text()="Available to:"]/../../../following-sibling::div//input[@aria-label="Hour"]')
     }
 
     get minutesAvailableTo(){
-        return $('//span[text()="Available to:"]/../../../following-sibling::div//input[@aria-label="Minuut"]')
+        return $('//span[text()="Available to:"]/../../../following-sibling::div//input[@aria-label="Minute"]')
     }
 
     dayToAttend(day){
@@ -33,7 +33,7 @@ class EventInfo extends Page {
     }
 
     get dietOptions(){
-        return $('//div[@role="option"]//span[text()="Kiezen"]')
+        return $('//div[@role="option"]//span[text()="Choose"]')
     }
 
     selectDiet(){
@@ -45,7 +45,7 @@ class EventInfo extends Page {
     }
 
     get submitButton(){
-        return $('//div/span/span[text()="Verzenden"]')
+        return $('//div/span/span[text()="Submit"]')
     }
 
     async clickOnNextButton(){

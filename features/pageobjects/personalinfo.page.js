@@ -15,8 +15,8 @@ class PersonalInfo extends Page {
         return $('button[type="submit"]');
     }
 
-    get nextButton(){
-        return $('//div/span/span[text()="Volgende"]')
+     btnWithText(text){
+        return $('//div//span[text()="'+text+'"]')
     }
 
     get enterName(){
@@ -40,12 +40,24 @@ class PersonalInfo extends Page {
     }
 
     get errorMessage(){
-        return $('//span[text()="Dit is een vereiste vraag"]')
+        return $('//span[text()="This is a required question"]')
+    }
+
+    get clearFormHeading(){
+        return $('//div[text()="Clear form?"]')
+    }
+
+    get clickClearFormBtnOnDialog(){
+        return $('(//div[@class="pw1uU"]/..//span[text()="Clear form"])[2]')
+    }
+
+    pageHeading(text){
+        return $('//div[text()="'+text+'"]')
     }
 
 
-   async clickOnNextButton(){
-         await this.nextButton.click();
+   async clickOnButtonWithText(text){
+         await this.btnWithText(text).click();
     }
 
     async enterTheName(){
@@ -78,6 +90,21 @@ class PersonalInfo extends Page {
         const ele = $('//span[text()="'+string+'"]')
         await expect(ele).toBePresent()
     }
+    async verifyClearFormDialog(){
+        await expect (this.clearFormHeading).toBePresent()
+    }
+
+    async clickClearformButtonOnDialog(){
+        await this.clickClearFormBtnOnDialog.click();
+    }
+
+    async verifyPage(page){
+        await expect (this.pageHeading(page)).toBePresent();
+    }
+
+
+
+    
 
 
 
@@ -85,7 +112,7 @@ class PersonalInfo extends Page {
      * overwrite specific options to adapt it to page object
      */
     open () {
-        return super.open('login');
+        return super.open();
     }
 }
 
