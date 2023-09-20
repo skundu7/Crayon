@@ -36,8 +36,16 @@ class EventInfo extends Page {
         return $('//div[@role="option"]//span[text()="Choose"]')
     }
 
-    selectDiet(){
-        return $('//div[@jsname="V68bde"]//div[@data-value="Vegan"]')
+    selectDiet(diet){
+        return $('//div[@jsname="V68bde"]//div[@data-value="'+diet+'"]')
+    }
+
+    get dietList(){
+        return $('//div[@jsname="V68bde"]//div[@jsname="wQNmvb"]//span[text()="Choose"]')
+    }
+
+    selectedDiet(diet){
+        return $('//div[@role="option"]//span[text()="'+diet+'"]')
     }
 
     get yesCheckBox(){
@@ -67,9 +75,11 @@ class EventInfo extends Page {
    }
 
    async selectDietFromOptions(diet){
-    await this.dietOptions.click();
-    await browser.pause(2000)
-    await this.selectDiet().click();
+        await this.dietOptions.click();
+        await browser.waitUntil(await this.dietList.isDisplayed,{timeout:5000})
+        await this.selectDiet(diet).click();
+        await browser.waitUntil(await this.selectedDiet(diet).isDisplayed)
+      
    }
 
    async selectYes(){

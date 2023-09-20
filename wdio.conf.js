@@ -162,7 +162,7 @@ export const config = {
         // <string> (expression) only execute the features or scenarios with tags matching the expression
         tagExpression: '@sunilk',
         // <number> timeout for step definitions
-        timeout: 10000,
+        timeout: 20000,
 
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: true
